@@ -16,4 +16,5 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-BreakpointApp::Application.config.secret_token = '2af03a6a1d4759759ce1bd4e55922f36e3c88d2768972f0c57408d0a169aa2bb61e6bb56abdae0a19ea533819c8ed4a0164a9ad84fad7f8949f0071df5a60c1b'
+BreakpointApp::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
+
