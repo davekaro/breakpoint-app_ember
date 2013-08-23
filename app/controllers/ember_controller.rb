@@ -1,2 +1,3 @@
-class EmberController < ActionController::Base; end
+class EmberController < ActionController::Base
+end
 
