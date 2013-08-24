@@ -1,5 +1,5 @@
-# For more information see: http://emberjs.com/guides/routing/
-
 BreakpointApp.Router.map ()->
-  @resource 'users'
+  @resource 'users', ->
+    @route 'show',
+      path: '/:user_id'
 

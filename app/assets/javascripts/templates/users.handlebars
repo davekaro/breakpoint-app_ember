@@ -1,0 +1,23 @@
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each user in users}}
+      <tr>
+        <td>{{#linkTo "users.show" user}}{{user.fullName}}{{/linkTo}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}
+
