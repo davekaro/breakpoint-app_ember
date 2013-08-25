@@ -2,7 +2,7 @@ BreakpointApp.UsersRoute = Ember.Route.extend
   model: ->
     BreakpointApp.User.find()
   setupController: (controller, model) ->
-    controller.set('users', model)
+    controller.set('content', model)
     @controllerFor('application').set('currentRoute', 'users')
 
 BreakpointApp.UsersNewRoute = Ember.Route.extend
