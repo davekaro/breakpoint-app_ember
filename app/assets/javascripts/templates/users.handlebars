@@ -1,25 +1,32 @@
-<h1>Users</h1>
+<div class="page-header">
+  <h1>Users</h1>
+</div>
 
-{{#linkTo "users.new"}}Create{{/linkTo}}
+<p>{{#linkTo "users.new" class="btn btn-primary"}}New user{{/linkTo}}</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each controller}}
-      <tr>
-        <td>{{#linkTo "users.show" this}}{{fullName}}{{/linkTo}}</td>
-        <td>{{email}}</td>
-        <td>{{phoneNumber}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{outlet}}
+<div class="row">
+  <div class="col-md-9">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each controller}}
+          <tr>
+            <td>{{#linkTo "users.show" this}}{{fullName}}{{/linkTo}}</td>
+            <td>{{email}}</td>
+            <td>{{phoneNumber}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    {{outlet}}
+  </div>
+</div>
 
