@@ -9,8 +9,10 @@ gem 'active_model_serializers'
 
 gem 'jquery-rails'
 gem 'coffee-rails'
+gem 'sass-rails'
 gem 'ember-rails'
 gem 'ember-source',      '1.0.0.rc7'
+gem 'bootstrap-sass',    :git => 'https://github.com/thomas-mcdonald/bootstrap-sass', :branch => '3'
 
 gem 'dotenv-rails'
 

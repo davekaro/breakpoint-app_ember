@@ -1,7 +1,21 @@
-<ul class="nav">
-  <li {{bindAttr class="isHome:active"}}>{{#linkTo 'index'}}Home{{/linkTo}}</li>
-  <li {{bindAttr class="isUsers:active"}}>{{#linkTo 'users'}}Users{{/linkTo}}</li>
-</ul>
+<div class="container">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#linkTo 'index' class="navbar-brand"}}Breakpoint App{{/linkTo}}
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li {{bindAttr class="isUsers:active"}}>{{#linkTo 'users'}}Users{{/linkTo}}</li>
+      </ul>
+    </div>
+  </nav>
 
-{{outlet}}
+  {{outlet}}
+</div>
 

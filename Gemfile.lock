@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thomas-mcdonald/bootstrap-sass
+  revision: 571ba865e1cd01f583c5949446803b9f2cd21926
+  branch: 3
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -104,6 +112,11 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.11.0)
     rake (10.1.0)
+    sass (3.2.10)
+    sass-rails (4.0.0)
+      railties (>= 4.0.0.beta, < 5.0)
+      sass (>= 3.1.10)
+      sprockets-rails (~> 2.0.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -131,6 +144,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bootstrap-sass!
   coffee-rails
   debugger
   dotenv-rails
@@ -141,4 +155,5 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0)
   rails-api
+  sass-rails
   unicorn
