@@ -11,7 +11,9 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
-        <li {{bindAttr class="isUsers:active"}}>{{#linkTo 'users'}}Users{{/linkTo}}</li>
+        {{#view BreakpointApp.NavView}}
+          {{#linkTo "users"}}Users{{/linkTo}}
+        {{/view}}
       </ul>
     </div>
   </div>
