@@ -1,7 +1,7 @@
 BreakpointApp.UsersNewController = Ember.ObjectController.extend
   save: ->
     @content.save().then =>
-      @transitionToRoute('users.show', @content)
+      @transitionToRoute('user', @content)
 
   cancel: ->
     @content.deleteRecord()
