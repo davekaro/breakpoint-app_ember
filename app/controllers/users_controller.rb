@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     render json: User.all
   end
@@ -10,8 +11,11 @@ class UsersController < ApplicationController
   def create
     user = User.new(params[:user])
 
-    user.save
-    render json: user
+    if user.save
+      render json: user.session_api_key, status: 201
+    else
+      render json: { errors: user.errors.messages }, status: 422
+    end
   end
 
    def update
