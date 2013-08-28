@@ -19,6 +19,9 @@ gem 'bcrypt-ruby',       '~> 3.0.0'
 
 group :development, :test do
   gem 'debugger'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 group :development do
