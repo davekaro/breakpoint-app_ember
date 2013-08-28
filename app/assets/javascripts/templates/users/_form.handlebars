@@ -1,6 +1,6 @@
 <h1>{{headerTitle}} {{fullName}}</h1>
 
-<form>
+<form {{action save on="submit"}}>
   <fieldset>
     <div>
       <label {{bindAttr for="firstNameField.field_id"}}>First Name</label>
@@ -18,7 +18,7 @@
       <label {{bindAttr for='phoneNumberField.elementId'}}>Phone Number</label>
       {{view Ember.TextField valueBinding='phoneNumber' name='phoneNumber' viewName='phoneNumberField'}}
     </div>
-    <a href='#' {{action save}}>{{buttonTitle}}</a>
+    <input type="submit" {{bindAttr value=buttonTitle}}></input>
   </fieldset>
 </form>
 

@@ -13,6 +13,6 @@ BreakpointApp.UsersEditController = Ember.ObjectController.extend
       @content.rollback()
     @transitionToRoute('user', @content)
 
-  buttonTitle: 'Edit'
+  buttonTitle: 'Save'
   headerTitle: 'Editing'
 
