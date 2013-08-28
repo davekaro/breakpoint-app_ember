@@ -41,6 +41,7 @@ GEM
       ember-source
       execjs
       handlebars-source
+    bcrypt-ruby (3.0.1)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -144,6 +145,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bcrypt-ruby (~> 3.0.0)
   bootstrap-sass!
   coffee-rails
   debugger

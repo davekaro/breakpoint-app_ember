@@ -15,6 +15,7 @@ gem 'ember-source',      '1.0.0.rc7'
 gem 'bootstrap-sass',    :git => 'https://github.com/thomas-mcdonald/bootstrap-sass', :branch => '3'
 
 gem 'dotenv-rails'
+gem 'bcrypt-ruby',       '~> 3.0.0'
 
 group :development, :test do
   gem 'debugger'
@@ -23,7 +24,4 @@ end
 group :development do
   gem 'quiet_assets'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
