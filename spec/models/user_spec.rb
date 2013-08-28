@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe User do
+  it "sets up api key correctly" do
+    user = create(:user)
+    api_key = user.session_api_key
+    api_key.access_token.should =~ /\S{32}/
+    api_key.user_id.should eq user.id
+  end
+
   it 'returns name when first and last exist' do
     user = build(:user, :first_name => 'DK', :last_name => 'Row')
     user.name.should eq 'DK Row'
