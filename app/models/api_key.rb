@@ -15,6 +15,10 @@ class ApiKey < ActiveRecord::Base
     where("expired_at >= ?", Time.now)
   end
 
+  def expire!
+    update_attributes(expired_at: Time.now)
+  end
+
   private
 
   def set_expiry_date

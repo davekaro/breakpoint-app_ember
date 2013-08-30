@@ -1,6 +1,6 @@
 <h1>{{headerTitle}} {{fullName}}</h1>
 
-<form {{action save on="submit"}}>
+<form {{action "save" on="submit"}}>
   <fieldset>
     <div>
       <label {{bindAttr for="firstNameField.field_id"}}>First Name</label>
@@ -27,9 +27,9 @@
     <div>
       {{input type="text" value=passwordConfirmation placeholder="Confirm password"}}
     </div>
-    <input type="submit" {{bindAttr value=buttonTitle}}></input>
+    <button type="submit">{{buttonTitle}}</button>
   </fieldset>
 </form>
 
-<a href='#' {{action cancel target='controller'}} class='btn btn-inverse'>Cancel</a>
+<a href="#" {{action "cancel" target="controller"}} class="btn btn-inverse">Cancel</a>
 

@@ -12,7 +12,8 @@ BreakpointApp::Application.routes.draw do
   end
 
   resources :users, :except => :edit, :constraints => FormatTest.new(:json)
-  post 'session' => 'session#create'
+  post   'session' => 'session#create'
+  delete 'session' => 'session#destroy'
 
   get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
   get '/',    :to => 'ember#index', :constraints => FormatTest.new(:html)

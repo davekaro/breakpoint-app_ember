@@ -15,6 +15,20 @@
           {{#linkTo "users"}}Users{{/linkTo}}
         {{/nav-link}}
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isAuthenticated}}
+          {{#nav-link}}
+            {{#linkTo "session.destroy"}}Sign out{{/linkTo}}
+          {{/nav-link}}
+        {{else}}
+          {{#nav-link}}
+            {{#linkTo "users.new"}}Sign up{{/linkTo}}
+          {{/nav-link}}
+          {{#nav-link}}
+            {{#linkTo "session.new"}}Sign in{{/linkTo}}
+          {{/nav-link}}
+        {{/if}}
+      </ul>
     </div>
   </div>
 </nav>
