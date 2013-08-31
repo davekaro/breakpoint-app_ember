@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    api_key = ApiKey.active.where(access_token: token).first
+    api_key = ApiKey.active.find_by(access_token: token)
     api_key ? api_key.user : nil
   end
 

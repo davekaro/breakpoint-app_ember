@@ -1,4 +1,12 @@
 BreakpointApp.SessionDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
-  renderTemplate: (controller, model) ->
-    controller.actions.signOut()
+  redirect: ->
+    self = this
+    $.ajax(
+      url:  "/session"
+      type: "DELETE"
+    ).always (response) ->
+      BreakpointApp.Session.setProperties
+        accessToken: ""
+        authUserId:  ""
+      self.transitionTo("session.new")
 
