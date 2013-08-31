@@ -18,7 +18,8 @@ describe SessionController do
   it "destroys sessions on request" do
     api_key = create(:session_api_key)
     user = api_key.user
-    delete :destroy, {}, { 'Authorization' => api_key.access_token }
+    @request.headers['Authorization'] = ActionController::HttpAuthentication::Token.encode_credentials(api_key.access_token)
+    delete :destroy
     response.status.should eq 200
     ApiKey.active.find_by(access_token: api_key.access_token).should be nil
   end

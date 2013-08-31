@@ -1,4 +1,4 @@
-BreakpointApp.UsersRoute = Ember.Route.extend
+BreakpointApp.UsersRoute = BreakpointApp.AuthenticatedRoute.extend
   model: ->
     BreakpointApp.User.find()
 

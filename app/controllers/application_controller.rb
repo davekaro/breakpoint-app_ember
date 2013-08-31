@@ -1,22 +1,15 @@
 class ApplicationController < ActionController::API
-  protected
+  include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  def ensure_authenticated_user
-    head :unauthorized unless current_user
-  end
+  attr_reader :current_user
 
-  def current_user
-    api_key = ApiKey.active.find_by(access_token: token)
-    api_key ? api_key.user : nil
-  end
+  private
 
-  def token
-    bearer = request.headers["HTTP_AUTHORIZATION"]
-
-    # allows our tests to pass
-    bearer ||= request.headers["rack.session"].try(:[], 'Authorization')
-
-    bearer.present? ? bearer.split.last : nil
+  def authenticate
+    @current_user = authenticate_or_request_with_http_token do |token, options|
+      api_key = ApiKey.active.find_by(access_token: token)
+      api_key ? api_key.user : nil
+    end
   end
 end
 

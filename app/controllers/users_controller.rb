@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # commented out until ember side is fully implemented
-  # before_filter :ensure_authenticated_user
+  before_action :authenticate
 
   def index
     render json: User.all
