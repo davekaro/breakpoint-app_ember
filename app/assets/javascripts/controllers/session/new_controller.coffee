@@ -10,10 +10,10 @@ BreakpointApp.SessionNewController = Ember.Controller.extend
             accessToken: apiKey.access_token
             authUserId:  apiKey.user_id
 
-        attemptedTransition = BreakpointApp.Session.get('attemptedTransition')
-        if attemptedTransition
-          attemptedTransition.retry()
-          BreakpointApp.Session.set('attemptedTransition', null)
-        else
-          self.transitionToRoute('users')
+          attemptedTransition = BreakpointApp.Session.get('attemptedTransition')
+          if attemptedTransition
+            BreakpointApp.Session.set('attemptedTransition', null)
+            attemptedTransition.retry()
+          else
+            self.transitionToRoute('users')
 
