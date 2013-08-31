@@ -1,5 +1,5 @@
 BreakpointApp.SessionDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
-  redirect: ->
+  beforeModel: ->
     self = this
     $.ajax(
       url:  "/session"
