@@ -1,10 +1,12 @@
 BreakpointApp.SessionNewController = Ember.Controller.extend
+  invalidCredentials: false
+
   actions:
     signIn: ->
       self = this
       data = @getProperties('email', 'password')
       if !Ember.isEmpty(data.email) && !Ember.isEmpty(data.password)
-        Ember.$.post('/session', data).done (response) ->
+        Ember.$.post('/session', data).done((response) ->
           apiKey = response.api_key || {}
           BreakpointApp.Session.setProperties
             accessToken: apiKey.access_token
@@ -16,4 +18,8 @@ BreakpointApp.SessionNewController = Ember.Controller.extend
             attemptedTransition.retry()
           else
             self.transitionToRoute('users')
+        ).fail (response) ->
+          self.set("invalidCredentials", true)
+      else
+        self.set("invalidCredentials", true)
 

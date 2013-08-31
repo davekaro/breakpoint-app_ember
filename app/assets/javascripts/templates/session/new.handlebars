@@ -1,5 +1,9 @@
 <h2>Login</h2>
 
+{{#if invalidCredentials}}
+  <div class="alert alert-warning">Wrong email or password</div>
+{{/if}}
+
 <form {{action "signIn" on="submit"}}>
   <fieldset>
     <div>
