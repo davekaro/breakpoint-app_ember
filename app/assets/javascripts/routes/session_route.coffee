@@ -1,4 +1,4 @@
-BreakpointApp.SessionsDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
+BreakpointApp.SessionDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
   renderTemplate: (controller, model) ->
-    controller.actions.logout()
+    controller.actions.signOut()
 
