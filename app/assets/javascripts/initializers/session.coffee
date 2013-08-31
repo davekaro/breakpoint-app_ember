@@ -25,5 +25,8 @@ Ember.Application.initializer
       isAuthenticated: (->
         !Ember.isEmpty(@get('accessToken'))
       ).property('accessToken')
+
+      reset: ->
+        @setProperties accessToken: "", authUserId:  ""
     ).create()
 

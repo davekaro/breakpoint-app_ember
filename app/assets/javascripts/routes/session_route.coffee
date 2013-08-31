@@ -6,7 +6,6 @@ BreakpointApp.SessionDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
       headers: 'Authorization': 'Token token="' + BreakpointApp.Session.get("accessToken") + '"'
       type: "DELETE"
     ).always (response) ->
-      $.removeCookie("access_token")
-      $.removeCookie("auth_user")
+      BreakpointApp.Session.reset()
       window.location.replace("/")
 

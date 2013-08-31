@@ -4,7 +4,7 @@ BreakpointApp.SessionNewController = Ember.Controller.extend
       self = this
       data = @getProperties('email', 'password')
       if !Ember.isEmpty(data.email) && !Ember.isEmpty(data.password)
-        $.post('/session', data).done (response) ->
+        Ember.$.post('/session', data).done (response) ->
           apiKey = response.api_key || {}
           BreakpointApp.Session.setProperties
             accessToken: apiKey.access_token
