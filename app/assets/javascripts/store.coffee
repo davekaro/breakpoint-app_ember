@@ -9,6 +9,8 @@ BreakpointApp.Store = DS.Store.extend
   adapter: BreakpointApp.AuthenticatedRESTAdapter.create()
 
 DS.rejectionHandler = (reason) ->
-  BreakpointApp.Session.reset() if reason.status == 401
+  if reason.status == 401
+    BreakpointApp.Session.reset()
+    # TODO @transitionTo("session.new")
   throw reason
 

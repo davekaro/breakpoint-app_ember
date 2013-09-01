@@ -11,7 +11,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    current_user.reset_session_api_key
+    current_api_key.expire!
     render json: {}
   end
 end

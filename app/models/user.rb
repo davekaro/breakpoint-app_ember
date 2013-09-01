@@ -24,11 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def session_api_key
-    api_keys.active.session.first_or_create
-  end
-
-  def reset_session_api_key
-    session_api_key.expire!
+    api_keys.session.create
   end
 end
 

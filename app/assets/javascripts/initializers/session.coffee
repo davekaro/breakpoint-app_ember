@@ -10,12 +10,12 @@ Ember.Application.initializer
 
       accessTokenChanged: (->
         accessToken = @get('accessToken')
-        $.cookie('access_token', accessToken)
+        $.cookie('access_token', accessToken, path: '/')
       ).observes('accessToken')
 
       authUserIdChanged: (->
         authUserId = @get('authUserId')
-        $.cookie('auth_user', authUserId)
+        $.cookie('auth_user', authUserId, path: '/')
         if !Ember.isEmpty(authUserId)
           @set('user', BreakpointApp.User.find(authUserId))
         else
