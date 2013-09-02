@@ -16,9 +16,11 @@ BreakpointApp.SessionNewController = Ember.Controller.extend
 
           attemptedTransition = BreakpointApp.Session.get('attemptedTransition')
           if attemptedTransition
+            console.log("wtf2")
             BreakpointApp.Session.set('attemptedTransition', null)
             attemptedTransition.retry()
           else
+            console.log("wtf3")
             self.transitionToRoute('users')
         ).fail (response) ->
           self.set("invalidCredentials", true)

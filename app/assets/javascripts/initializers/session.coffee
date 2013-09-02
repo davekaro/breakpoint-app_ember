@@ -8,6 +8,9 @@ Ember.Application.initializer
         @set("accessToken", $.cookie("access_token"))
         @set("authUserId", $.cookie("auth_user"))
 
+      #store:
+      #  container.lookup("store:main")
+
       accessTokenChanged: (->
         accessToken = @get("accessToken")
         @setCookie("access_token", accessToken)
@@ -16,10 +19,10 @@ Ember.Application.initializer
       authUserIdChanged: (->
         authUserId = @get("authUserId")
         @setCookie("auth_user", authUserId)
-        if !Ember.isEmpty(authUserId)
-          @set("user", BreakpointApp.User.find(authUserId))
-        else
-          @set("user", null)
+       # if !Ember.isEmpty(authUserId)
+       #   @set("user", @store.find("user", authUserId))
+       # else
+       #   @set("user", null)
       ).observes("authUserId")
 
       isAuthenticated: (->

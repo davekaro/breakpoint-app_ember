@@ -1,8 +1,8 @@
 BreakpointApp.UsersRoute = BreakpointApp.AuthenticatedRoute.extend
   model: ->
-    BreakpointApp.User.find()
+    this.store.find("user")
 
 BreakpointApp.UsersNewRoute = BreakpointApp.AuthenticatedRoute.extend
   model: ->
-    BreakpointApp.User.createRecord()
+    this.store.createRecord("user")
 
