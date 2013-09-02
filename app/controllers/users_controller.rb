@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     user = User.new(params[:user])
 
     if user.save
-      render json: user.session_api_key, status: 201
+      render json: user
     else
       render json: { errors: user.errors.messages }, status: 422
     end
