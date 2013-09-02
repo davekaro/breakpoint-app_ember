@@ -23,7 +23,7 @@ describe UsersController do
 
   it "#index with valid token" do
     user = create(:user, first_name: 'Johnny')
-    api_key = user.session_api_key
+    api_key = user.generate_api_key
     @request.headers['Authorization'] = ActionController::HttpAuthentication::Token.encode_credentials(api_key.access_token)
     get 'index'
     results = JSON.parse(response.body)

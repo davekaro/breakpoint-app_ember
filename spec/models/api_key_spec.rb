@@ -11,14 +11,14 @@ describe ApiKey do
     Time.stub(:now).and_return(Time.at(0))
     api_key = create(:session_api_key)
 
-    api_key.expired_at.should eq 4.hours.from_now
+    api_key.expired_at.should eq 1.hours.from_now
   end
 
-  it "sets the expired_at properly for 'api' scope" do
+  it "sets the expired_at properly for 'cookie' scope" do
     Time.stub(:now).and_return(Time.at(0))
-    api_key = create(:api_api_key)
+    api_key = create(:cookie_api_key)
 
-    api_key.expired_at.should eq 30.days.from_now
+    api_key.expired_at.should eq 14.days.from_now
   end
 end
 

@@ -23,8 +23,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def session_api_key
-    api_keys.session.create
+  def generate_api_key(remember_me=false)
+    if remember_me
+      api_keys.cookie.create
+    else
+      api_keys.session.create
+    end
   end
 end
 

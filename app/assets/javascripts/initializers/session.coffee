@@ -10,12 +10,12 @@ Ember.Application.initializer
 
       accessTokenChanged: (->
         accessToken = @get('accessToken')
-        $.cookie('access_token', accessToken, path: '/')
+        @setCookie('access_token', accessToken)
       ).observes('accessToken')
 
       authUserIdChanged: (->
         authUserId = @get('authUserId')
-        $.cookie('auth_user', authUserId, path: '/')
+        @setCookie('auth_user', authUserId)
         if !Ember.isEmpty(authUserId)
           @set('user', BreakpointApp.User.find(authUserId))
         else
@@ -27,6 +27,16 @@ Ember.Application.initializer
       ).property('accessToken')
 
       reset: ->
-        @setProperties accessToken: "", authUserId:  ""
+        @setProperties
+          accessToken: ""
+          authUserId:  ""
+          rememberMe: false
+          expiresAt: new Date()
+
+      setCookie: (name, value) ->
+        if @get("rememberMe")
+          $.cookie(name, value, path: '/', expires: @get("expiresAt"))
+        else
+          $.cookie(name, value, path: '/')
     ).create()
 

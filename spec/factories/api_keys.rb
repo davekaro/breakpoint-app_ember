@@ -8,10 +8,10 @@ FactoryGirl.define do
       expired_at   4.hours.from_now
     end
 
-    factory :api_api_key do
+    factory :cookie_api_key do
       access_token SecureRandom.hex
-      scope        'api'
-      expired_at   4.hours.from_now
+      scope        'cookie'
+      expired_at   14.days.from_now
     end
   end
 end

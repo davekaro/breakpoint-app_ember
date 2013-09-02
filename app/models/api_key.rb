@@ -1,5 +1,5 @@
 class ApiKey < ActiveRecord::Base
-  validates :scope, inclusion: { in: %w( session api ) }
+  validates :scope, inclusion: { in: %w( session cookie ) }
   before_create :generate_access_token, :set_expiry_date
   belongs_to :user
 
@@ -7,8 +7,8 @@ class ApiKey < ActiveRecord::Base
     where(scope: 'session')
   end
 
-  def self.api
-    where(scope: 'api')
+  def self.cookie
+    where(scope: 'cookie')
   end
 
   def self.active
@@ -23,9 +23,9 @@ class ApiKey < ActiveRecord::Base
 
   def set_expiry_date
     if self.scope == 'session'
-      self.expired_at = 4.hours.from_now
-    else
-      self.expired_at = 30.days.from_now
+      self.expired_at = 1.hours.from_now
+    elsif self.scope == 'cookie'
+      self.expired_at = 14.days.from_now
     end
   end
 
