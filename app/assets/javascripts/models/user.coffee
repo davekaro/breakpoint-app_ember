@@ -1,3 +1,5 @@
+BreakpointApp.UserSerializer = BreakpointApp.CamelizeSerializer.extend()
+
 BreakpointApp.User = DS.Model.extend
   firstName:            DS.attr('string', defaultValue: '')
   lastName:             DS.attr('string', defaultValue: '')
