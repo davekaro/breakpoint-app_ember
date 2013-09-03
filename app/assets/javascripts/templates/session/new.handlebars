@@ -1,27 +1,32 @@
-<h2>Login</h2>
+<div class="page-header">
+  <h1>Sign in</h1>
+</div>
 
 {{#if invalidCredentials}}
   <div class="alert alert-warning">Wrong email or password</div>
 {{/if}}
 
-<form {{action "signIn" on="submit"}}>
-  <fieldset>
-    <div>
-      <label>Email</label>
-      {{input type="text" value=email placeholder="Email Address"}}
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    {{#formFor model action="signIn"}}
+      {{input email inputConfig="class:form-control"}}
+      {{input password inputConfig="class:form-control"}}
+      {{#input rememberMe}}
+        <div class="col-md-offset-2 col-md-10">
+          <div class="checkbox">
+            <label>
+              {{inputField rememberMe as="checkbox"}} Remember me
+            </label>
+          </div>
+        </div>
+      {{/input}}
 
-    <div>
-      <label>Password</label>
-      {{input type="password" value=password placeholder="Password"}}
-    </div>
-
-    <div>
-      <label>Remember Me</label>
-      {{input type="checkbox" checked=rememberMe}}
-    </div>
-
-    <button type="submit">Submit</button>
-  </fieldset>
-</form>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </div>
+    {{/formFor}}
+  </div>
+</div>
 
