@@ -2,7 +2,7 @@
   <h1>Users</h1>
 </div>
 
-<p>{{#linkTo "users.new" class="btn btn-primary"}}New user{{/linkTo}}</p>
+<p>{{#link-to "users.new" class="btn btn-primary"}}New user{{/link-to}}</p>
 
 <div class="row">
   <div class="col-md-12">
@@ -27,7 +27,7 @@
             <td>{{fullName}}</td>
             <td>{{email}}</td>
             <td>{{phoneNumber}}</td>
-            <td>{{#linkTo "users.edit" this class="btn btn-default"}}Edit{{/linkTo}}</td>
+            <td>{{#link-to"users.edit" this class="btn btn-default"}}Edit{{/link-to}}</td>
           </tr>
         {{/each}}
       </tbody>
