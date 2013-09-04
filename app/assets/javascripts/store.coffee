@@ -13,15 +13,25 @@ DS.rejectionHandler = (reason) ->
     # TODO @transitionTo("session.new")
   throw reason
 
-BreakpointApp.CamelizeSerializer = DS.RESTSerializer.extend
+BreakpointApp.ApplicationSerializer = DS.RESTSerializer.extend
   normalize: (type, property, hash) ->
-    json = {}
+    normalized = {}
 
-    # normalize the underscored properties
     for prop, value of hash
-      json[prop.camelize()] = value
+      if prop.substr(-3) == "_id"
+        # belongsTo relationships
+        normalizedProp = prop.slice(0, -3)
+      else if prop.substr(-4) == "_ids"
+        # hasMany relationship
+        normalizedProp = Ember.String.pluralize(prop.slice(0, -4))
+      else
+        # regualarAttribute
+        normalizedProp = prop
 
-    @_super(type, property, json)
+      normalizedProp = Ember.String.camelize(normalizedProp)
+      normalized[normalizedProp] = value
+
+    @_super(type, property, normalized)
 
   serialize: (record, options) ->
     json = {}
