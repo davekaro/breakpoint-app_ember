@@ -2,12 +2,12 @@ BreakpointApp.UsersNewController = Ember.ObjectController.extend
   actions:
     save: ->
       @content.save().then =>
-        @transitionToRoute('user', @content)
+        @transitionToRoute("users")
 
     cancel: ->
       @content.deleteRecord()
-      @transitionToRoute 'users.index'
+      @transitionToRoute "users"
 
-  buttonTitle: 'Create'
-  headerTitle: 'Creating'
+  buttonTitle: "Create"
+  headerTitle: "Creating"
 

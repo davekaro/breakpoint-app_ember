@@ -3,17 +3,17 @@ BreakpointApp.UsersEditController = Ember.ObjectController.extend
     destroy: ->
       @content.deleteRecord()
       @store.commit()
-      @transitionToRoute('users.index')
+      @transitionToRoute("users")
 
     save: ->
       @content.save().then =>
-        @transitionToRoute('user', @content)
+        @transitionToRoute("users")
 
     cancel: ->
-      if @content.get('isDirty')
+      if @content.get("isDirty")
         @content.rollback()
-      @transitionToRoute('user', @content)
+      @transitionToRoute("users")
 
-  buttonTitle: 'Save'
-  headerTitle: 'Editing'
+  buttonTitle: "Save"
+  headerTitle: "Editing"
 

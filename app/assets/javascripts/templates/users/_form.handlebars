@@ -1,35 +1,22 @@
-<h1>{{headerTitle}} {{fullName}}</h1>
+<div class="page-header">
+  <h1>{{headerTitle}} {{fullName}}</h1>
+</div>
 
-<form {{action "save" on="submit"}}>
-  <fieldset>
-    <div>
-      <label {{bindAttr for="firstNameField.field_id"}}>First Name</label>
-      {{view Ember.TextField valueBinding='firstName' name='first_name' viewName='firstNameField'}}
+{{#formFor content action="save"}}
+  {{input firstName}}
+  {{input lastName}}
+  {{input email}}
+  {{input phoneNumber}}
+  {{input timeZone}}
+  {{input password}}
+  {{input passwordConfirmation label="Confirm password"}}
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <button type="submit" class="btn btn-primary">{{buttonTitle}}</button>
     </div>
-    <div>
-      <label {{bindAttr for='lastNameField.elementId'}}>Last Name</label>
-      {{view Ember.TextField valueBinding='lastName' name='last_name' viewName='lastNameField'}}
-    </div>
-    <div>
-      <label {{bindAttr for='emailField.elementId'}}>Email</label>
-      {{view Ember.TextField valueBinding='email' name='email' viewName='emailField'}}
-    </div>
-    <div>
-      <label {{bindAttr for='phoneNumberField.elementId'}}>Phone Number</label>
-      {{view Ember.TextField valueBinding='phoneNumber' name='phoneNumber' viewName='phoneNumberField'}}
-    </div>
-    <div>
-      {{input type="text" value=timeZone placeholder="Time zone"}}
-    </div>
-    <div>
-      {{input type="text" value=password placeholder="Password"}}
-    </div>
-    <div>
-      {{input type="text" value=passwordConfirmation placeholder="Confirm password"}}
-    </div>
-    <button type="submit">{{buttonTitle}}</button>
-  </fieldset>
-</form>
+  </div>
+{{/formFor}}
 
 <a href="#" {{action "cancel" target="controller"}} class="btn btn-inverse">Cancel</a>
 

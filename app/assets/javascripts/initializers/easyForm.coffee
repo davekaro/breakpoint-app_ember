@@ -8,3 +8,9 @@ Ember.EasyForm.Config.registerWrapper "default",
   wrapControls:         true
   controlsWrapperClass: "col-md-8"
 
+Ember.TextSupport.reopen
+  classNames: ["form-control"]
+
+Ember.Select.reopen
+  classNames: ["form-control"]
+
