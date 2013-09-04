@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>{{headerTitle}} {{fullName}}</h1>
-</div>
+<h2>{{headerTitle}} {{fullName}}</h2>
 
 {{#formFor content action="save"}}
   {{input firstName}}
@@ -14,9 +12,11 @@
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
       <button type="submit" class="btn btn-primary">{{buttonTitle}}</button>
+      {{#unless content.isNew}}
+        <a href="#" class="btn btn-danger" {{action "destroy"}}>Delete</a>
+      {{/unless}}
+      <a href="#" {{action "cancel" target="controller"}}>Cancel</a>
     </div>
   </div>
 {{/formFor}}
-
-<a href="#" {{action "cancel" target="controller"}} class="btn btn-inverse">Cancel</a>
 
