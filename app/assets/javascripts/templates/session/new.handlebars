@@ -12,20 +12,14 @@
       {{input email}}
       {{input password}}
       {{#input rememberMe}}
-        <div class="col-md-offset-2 col-md-10">
-          <div class="checkbox">
-            <label>
-              {{inputField rememberMe as="checkbox"}} Remember me
-            </label>
-          </div>
+        <div class="checkbox">
+          <label>
+            {{inputField rememberMe as="checkbox"}} Remember me
+          </label>
         </div>
       {{/input}}
 
-      <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
     {{/formFor}}
   </div>
 </div>

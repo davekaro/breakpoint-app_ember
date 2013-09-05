@@ -1,12 +1,12 @@
 Ember.EasyForm.Config.registerWrapper "default",
-  formClass:            "form-horizontal"
+  formClass:            ""
   fieldErrorClass:      "error"
   errorClass:           "help-inline"
   hintClass:            "help-block"
-  labelClass:           "col-md-2 control-label"
+  labelClass:           ""
   inputClass:           "form-group"
-  wrapControls:         true
-  controlsWrapperClass: "col-md-8"
+  wrapControls:         false
+  controlsWrapperClass: ""
 
 Ember.TextSupport.reopen
   classNames: ["form-control"]

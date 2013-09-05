@@ -1,5 +1,7 @@
 <h2>{{headerTitle}} {{fullName}}</h2>
 
+<div class="row">
+<div class="col-md-8">
 {{#formFor content action="save"}}
   {{input firstName}}
   {{input lastName}}
@@ -9,14 +11,12 @@
   {{input password}}
   {{input passwordConfirmation label="Confirm password"}}
 
-  <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-      <button type="submit" class="btn btn-primary">{{buttonTitle}}</button>
-      {{#unless content.isNew}}
-        <a href="#" class="btn btn-danger" {{action "destroy"}}>Delete</a>
-      {{/unless}}
-      <a href="#" {{action "cancel" target="controller"}}>Cancel</a>
-    </div>
-  </div>
+  <button type="submit" class="btn btn-primary">{{buttonTitle}}</button>
+  {{#unless content.isNew}}
+    <a href="#" class="btn btn-danger" {{action "destroy"}}>Delete</a>
+  {{/unless}}
+  <a href="#" {{action "cancel" target="controller"}}>Cancel</a>
 {{/formFor}}
 
+    </div>
+  </div>
