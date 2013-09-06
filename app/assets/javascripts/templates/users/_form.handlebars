@@ -40,9 +40,9 @@
 
       <button type="submit" class="btn btn-primary">{{buttonTitle}}</button>
       {{#unless content.isNew}}
-        <a href="#" class="btn btn-danger" {{action "destroy"}}>Delete</a>
+        <a href="#" class="btn btn-danger" {{action "deleteUser"}}>Delete</a>
       {{/unless}}
-      <a href="#" {{action "cancel" target="controller"}}>Cancel</a>
+      <a href="#" {{action "cancel"}}>Cancel</a>
     </form>
 
   </div>
