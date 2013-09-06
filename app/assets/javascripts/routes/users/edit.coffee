@@ -2,22 +2,20 @@ BreakpointApp.UsersEditRoute = BreakpointApp.AuthenticatedRoute.extend
   actions:
     deleteUser: ->
       if confirm("Are you sure you want to delete the selected author? Click OK to continue.")
-        user = @controller.get("content")
-
-        user.deleteRecord()
-        user.save().then(=>
+        @currentModel.deleteRecord()
+        @currentModel.save().then(=>
             @transitionTo("users")
           (error) ->
-            user.rollback()
+            @currentModel.rollback()
             alert("An error occured - Please try again")
         )
 
     save: ->
-      @controller.get("content").save().then =>
+      @currentModel.save().then =>
         @transitionTo("users")
 
     cancel: ->
-      if @controller.get("content").get("isDirty")
-        @controller.get("content").rollback()
+      if @currentModel.get("isDirty")
+        @currentModel.rollback()
       @transitionTo("users")
 
