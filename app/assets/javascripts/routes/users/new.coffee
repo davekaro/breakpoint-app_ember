@@ -4,10 +4,10 @@ BreakpointApp.UsersNewRoute = BreakpointApp.AuthenticatedRoute.extend
 
   actions:
     save: ->
-      @currentModel.save().then =>
+      @modelFor("users.new").save().then =>
         @transitionTo("users")
 
     cancel: ->
-      @currentModel.deleteRecord()
+      @modelFor("users.new").deleteRecord()
       @transitionTo("users")
 
