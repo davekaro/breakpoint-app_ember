@@ -7,31 +7,3 @@ BreakpointApp.AuthenticatedRESTAdapter = DS.RESTAdapter.extend
 
 BreakpointApp.ApplicationAdapter = BreakpointApp.AuthenticatedRESTAdapter.extend()
 
-BreakpointApp.ApplicationSerializer = DS.RESTSerializer.extend
-  normalize: (type, property, hash) ->
-    normalized = {}
-
-    for prop, value of hash
-      if prop.substr(-3) == "_id"
-        # belongsTo relationships
-        normalizedProp = prop.slice(0, -3)
-      else if prop.substr(-4) == "_ids"
-        # hasMany relationship
-        normalizedProp = Ember.String.pluralize(prop.slice(0, -4))
-      else
-        # regualarAttribute
-        normalizedProp = prop
-
-      normalizedProp = Ember.String.camelize(normalizedProp)
-      normalized[normalizedProp] = value
-
-    @_super(type, property, normalized)
-
-  serialize: (record, options) ->
-    json = {}
-
-    record.eachAttribute (name) ->
-      json[name.underscore()] = record.get(name)
-
-    json
-

@@ -1,4 +1,5 @@
 #= require ./store
+#= require ./active_model_serializer
 #= require_tree ./initializers
 #= require_tree ./models
 #= require_tree ./controllers
