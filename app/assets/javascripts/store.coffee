@@ -7,12 +7,6 @@ BreakpointApp.AuthenticatedRESTAdapter = DS.RESTAdapter.extend
 
 BreakpointApp.ApplicationAdapter = BreakpointApp.AuthenticatedRESTAdapter.extend()
 
-DS.rejectionHandler = (reason) ->
-  if reason.status == 401
-    BreakpointApp.Session.reset()
-    # TODO @transitionTo("session.new")
-  throw reason
-
 BreakpointApp.ApplicationSerializer = DS.RESTSerializer.extend
   normalize: (type, property, hash) ->
     normalized = {}
