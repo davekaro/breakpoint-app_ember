@@ -1,9 +1,28 @@
 App.ApplicationController = Ember.Controller.extend
-  currentUser: (->
-    App.Session.get("user")
-  ).property("App.Session.user")
+  accessToken: $.cookie("access_token")
+
+  authUserId: (->
+    $.cookie("auth_user")
+  ).property("accessToken")
 
   isAuthenticated: (->
-    App.Session.get("isAuthenticated")
-  ).property("App.Session.isAuthenticated")
+    !Ember.isEmpty(@get("accessToken"))
+  ).property("accessToken")
+
+  currentUser: (->
+    userId = @get("authUserId")
+    if !Ember.isEmpty(userId)
+      @store.find("user", userId)
+    else
+      null
+  ).property("authUserId")
+
+  savedTransition: null
+
+  authenticate: ->
+    @setProperties
+      accessToken: $.cookie("access_token")
+      savedTransition: null
+
+  unauthenticate: -> @set("accessToken", null)
 

@@ -1,4 +1,4 @@
-App.UsersNewRoute = App.AuthenticatedRoute.extend
+App.UsersNewRoute = Ember.Route.extend
   model: ->
     @store.createRecord("user")
 

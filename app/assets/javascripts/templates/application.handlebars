@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to "index" class="navbar-brand"}}Breakpoint App{{/link-to}}
+      {{#link-to "authenticated.index" class="navbar-brand"}}Breakpoint App{{/link-to}}
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
@@ -18,14 +18,14 @@
       <ul class="nav navbar-nav navbar-right">
         {{#if isAuthenticated}}
           {{#nav-link}}
-            {{#link-to "session.destroy"}}Sign out{{/link-to}}
+            <a href="#" {{action "signOut"}}>Sign out</a>
           {{/nav-link}}
         {{else}}
           {{#nav-link}}
             {{#link-to "users.new"}}Sign up{{/link-to}}
           {{/nav-link}}
           {{#nav-link}}
-            {{#link-to "session.new"}}Sign in{{/link-to}}
+            {{#link-to "sign_in"}}Sign in{{/link-to}}
           {{/nav-link}}
         {{/if}}
       </ul>

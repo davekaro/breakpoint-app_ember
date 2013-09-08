@@ -1,9 +1,9 @@
 App.Router.map ()->
-  @resource "users", ->
-    @route "new"
-    @route "edit", path: ":user_id/edit"
+  @resource("authenticated", path: "/", ->
+    @resource "users", ->
+      @route "new"
+      @route "edit", path: ":user_id/edit"
+  )
 
-  @resource "session", ->
-    @route "new"
-    @route "destroy"
+  @resource "sign_in"
 
