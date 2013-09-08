@@ -12,7 +12,7 @@ App.ApplicationController = Ember.Controller.extend
   currentUser: (->
     userId = @get("authUserId")
     if !Ember.isEmpty(userId)
-      @store.find("user", userId)
+      @get("store").find("user", userId)
     else
       null
   ).property("authUserId")
