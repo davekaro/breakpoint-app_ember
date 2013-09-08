@@ -1,4 +1,4 @@
-BreakpointApp.Router.map ()->
+App.Router.map ()->
   @resource "users", ->
     @route "new"
     @route "edit", path: ":user_id/edit"

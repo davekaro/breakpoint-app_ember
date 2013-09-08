@@ -1,6 +1,6 @@
 var get = Ember.get, isNone = Ember.isNone;
 
-BreakpointApp.ActiveModelSerializer = DS.RESTSerializer.extend({
+App.ActiveModelSerializer = DS.RESTSerializer.extend({
   defaultSerializer: '_ams',
   pathForType: function(type) {
     var decamelized = Ember.String.decamelize(type);

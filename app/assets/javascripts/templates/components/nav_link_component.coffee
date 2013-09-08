@@ -1,4 +1,4 @@
-BreakpointApp.NavLinkComponent = Ember.Component.extend
+App.NavLinkComponent = Ember.Component.extend
   tagName: "li",
   classNameBindings: ["active"],
 

@@ -1,9 +1,9 @@
-BreakpointApp.ApplicationController = Ember.Controller.extend
+App.ApplicationController = Ember.Controller.extend
   currentUser: (->
-    BreakpointApp.Session.get("user")
-  ).property("BreakpointApp.Session.user")
+    App.Session.get("user")
+  ).property("App.Session.user")
 
   isAuthenticated: (->
-    BreakpointApp.Session.get("isAuthenticated")
-  ).property("BreakpointApp.Session.isAuthenticated")
+    App.Session.get("isAuthenticated")
+  ).property("App.Session.isAuthenticated")
 

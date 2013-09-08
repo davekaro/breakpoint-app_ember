@@ -9,5 +9,5 @@
 #= require breakpoint_app
 
 # for more details see: http://emberjs.com/guides/application/
-window.BreakpointApp = Ember.Application.create()
+window.App = Ember.Application.create()
 

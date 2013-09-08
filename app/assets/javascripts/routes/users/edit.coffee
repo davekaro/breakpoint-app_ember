@@ -1,4 +1,4 @@
-BreakpointApp.UsersEditRoute = BreakpointApp.AuthenticatedRoute.extend
+App.UsersEditRoute = App.AuthenticatedRoute.extend
   actions:
     deleteUser: ->
       if confirm("Are you sure you want to delete the selected author? Click OK to continue.")

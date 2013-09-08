@@ -1,4 +1,4 @@
-BreakpointApp.UsersNewController = Ember.ObjectController.extend
+App.UsersNewController = Ember.ObjectController.extend
   buttonTitle: "Create"
   headerTitle: "Creating"
 

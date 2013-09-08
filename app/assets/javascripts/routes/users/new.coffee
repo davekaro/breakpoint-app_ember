@@ -1,4 +1,4 @@
-BreakpointApp.UsersNewRoute = BreakpointApp.AuthenticatedRoute.extend
+App.UsersNewRoute = App.AuthenticatedRoute.extend
   model: ->
     @store.createRecord("user")
 

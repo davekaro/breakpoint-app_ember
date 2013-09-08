@@ -1,11 +1,11 @@
-BreakpointApp.SessionDestroyRoute = BreakpointApp.AuthenticatedRoute.extend
+App.SessionDestroyRoute = App.AuthenticatedRoute.extend
   beforeModel: ->
     self = this
     $.ajax(
       url:  "/session"
-      headers: 'Authorization': 'Token token="' + BreakpointApp.Session.get("accessToken") + '"'
+      headers: 'Authorization': 'Token token="' + App.Session.get("accessToken") + '"'
       type: "DELETE"
     ).always (response) ->
-      BreakpointApp.Session.reset()
+      App.Session.reset()
       window.location.replace("/")
 

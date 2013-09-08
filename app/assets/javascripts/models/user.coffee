@@ -1,6 +1,6 @@
-BreakpointApp.UserSerializer = BreakpointApp.ActiveModelSerializer.extend()
+App.UserSerializer = App.ActiveModelSerializer.extend()
 
-BreakpointApp.User = DS.Model.extend Ember.Validations.Mixin,
+App.User = DS.Model.extend Ember.Validations.Mixin,
   firstName:            DS.attr('string', defaultValue: '')
   lastName:             DS.attr('string', defaultValue: '')
   phoneNumber:          DS.attr('string')

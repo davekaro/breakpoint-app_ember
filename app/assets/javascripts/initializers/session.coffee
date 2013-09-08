@@ -2,7 +2,7 @@ Ember.Application.initializer
   name: "session"
 
   initialize: (container, application) ->
-    BreakpointApp.Session = Ember.Object.extend(
+    App.Session = Ember.Object.extend(
       init: ->
         @_super()
         @set("accessToken", $.cookie("access_token"))

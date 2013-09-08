@@ -1,4 +1,4 @@
-BreakpointApp.SessionNewRoute = Ember.Route.extend
+App.SessionNewRoute = Ember.Route.extend
   actions:
     signIn: ->
       self = this
@@ -7,15 +7,15 @@ BreakpointApp.SessionNewRoute = Ember.Route.extend
       if !Ember.isEmpty(data.email) && !Ember.isEmpty(data.password)
         Ember.$.post("/session", data).done((response) ->
           apiKey = response.api_key || {}
-          BreakpointApp.Session.setProperties
+          App.Session.setProperties
             accessToken: apiKey.access_token
             authUserId:  apiKey.user_id
             rememberMe:  data.rememberMe
             expiresAt:   new Date(apiKey.expired_at)
 
-          attemptedTransition = BreakpointApp.Session.get("attemptedTransition")
+          attemptedTransition = App.Session.get("attemptedTransition")
           if attemptedTransition
-            BreakpointApp.Session.set("attemptedTransition", null)
+            App.Session.set("attemptedTransition", null)
             attemptedTransition.retry()
           else
             self.transitionTo("users")
