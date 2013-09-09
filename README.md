@@ -9,12 +9,15 @@ I wanted to learn Ember, so I decided to take Breakpoint App and rewrite it in E
 
 ## Install
 
-* `git clone`, `bundle install`, `rake db:setup` to get started
+* `git clone`, `bundle install` to get started
 * `cp config/database.yml{.example,}` and update settings
-* Two users are created for you
-  * dave@example.com, password
-  * john@example.com, secret
-* Create your user in Rails console
-  * `rails c`
-  * `User.create(first_name: 'Dave', last_name: 'Kroondyk', email: 'dave@example.com', time_zone: 'Eastern Time (US & Canada)', password: 'secret', password_confirmation: 'secret')`
+* `rake db:setup`
+
+Two users are created for you
+* dave@example.com, password
+* john@example.com, secret
+
+Create your user in Rails console
+* `rails c`
+* `User.create(first_name: 'Dave', last_name: 'Kroondyk', email: 'dave@example.com', time_zone: 'Eastern Time (US & Canada)', password: 'secret', password_confirmation: 'secret')`
 
