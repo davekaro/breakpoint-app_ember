@@ -9,6 +9,10 @@ App.rootElement = '#ember-testing'
 App.setupForTesting()
 App.injectTestHelpers()
 
+module "Integration Tests",
+  setup: ->
+    App.reset()
+
 exists = (selector) ->
   !!find(selector).length
 

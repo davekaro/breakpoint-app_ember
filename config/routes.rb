@@ -11,11 +11,10 @@ BreakpointApp::Application.routes.draw do
     end
   end
 
-  resources :users, :except => :edit, :constraints => FormatTest.new(:json)
+  resources :users, :except => :edit, constraints: FormatTest.new(:json)
   post   'session' => 'session#create'
   delete 'session' => 'session#destroy'
 
-  get '*foo', :to => 'ember#index', :constraints => FormatTest.new(:html)
-  get '/',    :to => 'ember#index', :constraints => FormatTest.new(:html)
+  root 'ember#index', constraints: FormatTest.new(:html)
 end
 
