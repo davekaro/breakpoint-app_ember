@@ -10,6 +10,7 @@ I wanted to learn Ember, so I decided to take Breakpoint App and rewrite it in E
 ## Install
 
 * `git clone`, `bundle install`, `rake db:setup` to get started
+* `cp config/database.yml{.example,}` and update settings
 * Two users are created for you
   * dave@example.com, password
   * john@example.com, secret
