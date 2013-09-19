@@ -9,21 +9,17 @@ testing = ->
   helper =
     container: ->
       App.__container__
-    ,
     controller: (name) ->
       helper.container().lookup('controller:' + name)
-    ,
     path: ->
       helper.controller('application').get('currentPath')
   helper
 
-Ember.Test.registerHelper('path', ->
+Ember.Test.registerHelper 'path', ->
   testing().path();
-)
 
-Ember.Test.registerHelper('getApplicationController', ->
+Ember.Test.registerHelper 'getApplicationController', ->
   testing().controller('application');
-)
 
 App.rootElement = '#ember-testing'
 App.setupForTesting()
