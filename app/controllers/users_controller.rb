@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  # commented out until ember side is fully implemented
-  before_action :authenticate
-
   def index
     render json: User.all
   end
