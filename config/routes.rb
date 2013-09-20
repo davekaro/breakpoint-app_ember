@@ -12,6 +12,7 @@ BreakpointApp::Application.routes.draw do
   end
 
   resources :users, :except => :edit, constraints: FormatTest.new(:json)
+  resources :teams, :except => :edit, constraints: FormatTest.new(:json)
   post   'session' => 'session#create'
   delete 'session' => 'session#destroy'
 

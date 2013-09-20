@@ -12,22 +12,19 @@ describe UsersController do
   end
 
   it "#index with expired token" do
-    user = create(:user)
-    expired_api_key = user.api_keys.session.create
+    expired_api_key = valid_api_key
     expired_api_key.update_attribute(:expired_at, 30.days.ago)
-    ApiKey.active.map(&:id).include?(expired_api_key.id).should eq false
-    @request.headers['Authorization'] = ActionController::HttpAuthentication::Token.encode_credentials(expired_api_key.access_token)
+    ApiKey.active.pluck(&:id).include?(expired_api_key.id).should eq false
+    authenticate_request(expired_api_key.access_token)
     get 'index'
     response.status.should eq 401
   end
 
   it "#index with valid token" do
-    user = create(:user, first_name: 'Johnny')
-    api_key = user.generate_api_key
-    @request.headers['Authorization'] = ActionController::HttpAuthentication::Token.encode_credentials(api_key.access_token)
+    authenticate_request
     get 'index'
     results = JSON.parse(response.body)
-    results['users'].first['first_name'].should eq 'Johnny'
+    results['users'].first['first_name'].should eq @user.first_name
   end
 end
 
