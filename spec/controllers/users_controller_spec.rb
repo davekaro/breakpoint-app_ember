@@ -24,7 +24,7 @@ describe UsersController do
     authenticate_request
     get 'index'
     results = JSON.parse(response.body)
-    results['users'].first['first_name'].should eq @user.first_name
+    results['users'].first['first_name'].should eq logged_in_user.first_name
   end
 end
 

@@ -1,7 +1,7 @@
 module AuthenticationMacros
   def logged_in_user
     @valid_api_key ||= create(:session_api_key)
-    @user ||= @valid_api_key.user
+    @logged_in_user ||= valid_api_key.user
   end
 
   def valid_api_key
