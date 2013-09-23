@@ -6,7 +6,14 @@ describe TeamsController do
     team = create(:team, name: "Awesome team")
     get 'index'
     results = JSON.parse(response.body)
-    results['teams'].first['name'].should eq 'Awesome team'
+    expect(results['teams'].first['name']).to eq 'Awesome team'
+  end
+
+  it "#create" do
+    authenticate_request
+    expect {
+      post 'create', { team: { name: 'Good team', singles_matches: 1, doubles_matches: 2 }}
+    }.to change { Team.count }.by 1
   end
 end
 
